@@ -1,5 +1,9 @@
 #include <stdio.c>
 
 int main(void){
-        return 0;
+        uint8 result;
+        
+        result = 10 + 20;
+        
+        return result;
 }
