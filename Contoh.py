@@ -13,21 +13,20 @@ class MyWindow(Gtk.Window):
         scrolled_window.set_border_width(5)
         
         buffer1 = Gtk.TextBuffer()
-        buffer1.set_text("This is")
-        textview = Gtk.TextView(buffer=buffer1.set_text("This is"))
-        textview.set_wrap_mode(Gtk.WrapMode.WORD)
+        textview = Gtk.TextView()
+        buffer1.set_text("test")
+        textview.set_buffer(buffer1)
         scrolled_window.add(textview)
-        
         p = subprocess.Popen(
                     "free -h", shell=True,
                     stdout=subprocess.PIPE,
                     stderr=subprocess.STDOUT
                     )
+        encoding ='utf-8'
         for line in p.stdout.readlines():
-            print(line),
-        retval = p.wait()
-
-
+            lines = str(line, encoding) 
+        
+        
 win = MyWindow()
 win.connect("destroy", Gtk.main_quit)
 win.show_all()
