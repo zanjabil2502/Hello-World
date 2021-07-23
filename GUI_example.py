@@ -1,4 +1,6 @@
 #Program GUI
+
+#mengimport package yang diperlukan
 import gi 
 import subprocess
 
